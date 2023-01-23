@@ -48,7 +48,7 @@ var (
 			// to refer internally as attributes
 			match: regexp.MustCompile(`([\w\-_=]+)\s=\s{`),
 			replaceFn: func(m []byte) []byte {
-				if bytes.Contains(m, []byte(`=tc=`)) {
+				if bytes.Contains(m, []byte(`=tc=`)) || bytes.Contains(m, []byte(`tags`)) {
 					return []byte(fmt.Sprintf("%s", m))
 				}
 
