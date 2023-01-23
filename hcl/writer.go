@@ -61,7 +61,7 @@ func NewWriter(w io.Writer, pv provider.Provider, opts *writer.Options) *Writer 
 			// just '{' so this would be included too and it would
 			// be invalid configuration
 			fmt.Sprintf("=tc=%s", pv.String()): map[string]interface{}{
-				"source": pv.Source(),
+				"source": pv.Source(), "version": "= 4.9.0",
 			},
 		},
 	}
