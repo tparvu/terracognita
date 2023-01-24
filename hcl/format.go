@@ -42,18 +42,13 @@ var (
 			replace: []byte(`$1 =`),
 		},
 		{
-			// Replace all the `key = {` for `key {` except
-			// on the detected blocks.
-			// It'll ignore the '=tc=' ones as those are a key word
-			// to refer internally as attributes
 			match: regexp.MustCompile(`([\w\-_=]+)\s=\s{`),
+			replace: []byte{},
 			replaceFn: func(m []byte) []byte {
 				if bytes.Contains(m, []byte(`=tc=`)) || bytes.Contains(m, []byte(`tags`)) {
 					return []byte(fmt.Sprintf("%s", m))
 				}
-
 				return bytes.Replace(m, []byte(`= `), nil, 1)
-
 			},
 		},
 		{
