@@ -1,8 +1,9 @@
 SHELL := /bin/bash
 BIN := terracognita
 BIN_DIR := $(GOPATH)/bin
+#BIN_DIR := /usr/bin
 
-GOLINT := $(BIN_DIR)/golinter
+GOLINT := $(BIN_DIR)/revive
 GOIMPORTS := $(BIN_DIR)/goimports
 ENUMER := $(BIN_DIR)/enumer
 MOCKGEN := $(BIN_DIR)/mockgen
@@ -41,7 +42,7 @@ $(ENUMER):
 	@go get -u github.com/dmarkham/enumer
 
 $(GOLINT):
-	@go get -u golang.org/x/lint/golint
+	@go get -u github.com/mgechev/revive
 
 .PHONY: lint
 lint: $(GOLINT) $(GOIMPORTS) ## Runs the linter
