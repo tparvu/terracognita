@@ -17,7 +17,7 @@ PROVIDER ?= all
 IS_CI := 0
 
 # Setup the -ldflags option for go build here, interpolate the variable values
-LDFLAGS=-ldflags "-X github.com/cycloidio/terracognita/cmd.Version=${VERSION}"
+LDFLAGS=-ldflags "-X github.com/tparvu/terracognita/cmd.Version=${VERSION}"
 
 .PHONY: help
 help: Makefile ## This help dialog
