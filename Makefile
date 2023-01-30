@@ -46,7 +46,7 @@ $(GOLINT):
 
 .PHONY: lint
 lint: $(GOLINT) $(GOIMPORTS) ## Runs the linter
-	@GO111MODULE=on golint -set_exit_status ./... && test -z "`go list -f {{.Dir}} ./... | xargs goimports -l | tee /dev/stderr`"
+	@GO111MODULE=on /usr/bin/revive -set_exit_status ./... && test -z "`go list -f {{.Dir}} ./... | xargs goimports -l | tee /dev/stderr`"
 
 .PHONY: generate
 generate: $(MOCKGEN) $(GOIMPORTS) $(ENUMER) ## Generates the needed code
